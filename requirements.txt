@@ -1,0 +1,11 @@
+streamlit
+google-generativeai
+python-dotenv
+pdf2image
+
+
+
+
+#architecture
+#1. Data Preprocessing
+#2. NLP ,W
