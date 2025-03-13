@@ -9,10 +9,12 @@ from pdf2image import convert_from_bytes
 from PIL import Image
 import io
 
-
 # Load environment variables
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+# Load and display the AI-generated image
+
 
 class ATSAnalyzer:
     @staticmethod
@@ -63,12 +65,16 @@ class ATSAnalyzer:
 def main():
     # Page configuration
     st.set_page_config(
-        page_title="ATS Resume Expert",
+        page_title="AI Resume Expert",
         page_icon="📄",
         layout="wide"
     )
 
-    # Custom CSS for a polished UI
+    # Header with professional description
+    st.title("📄🔍 AI-Powered Resume Analyzer")
+   
+    st.image("aiii.webp", caption="AI analyzing resume", width=500)
+
     st.markdown("""
         <style>
         .stButton>button {
@@ -93,11 +99,16 @@ def main():
             background-color: #fff3cd;
             color: #856404;
         }
+        .stimage {
+                padding:5rem;
+                width:50%;
+                height:auto;
+                align-items:centre}
         </style>
     """, unsafe_allow_html=True)
 
     # Header with professional description
-    st.title("📄 ATS Resume Analyzer")
+    
     st.markdown("""
         This advanced tool analyzes your resume against job descriptions using AI powered by Google Gemini. 
         Upload your resume (PDF) and provide the job description to:
@@ -206,5 +217,8 @@ def main():
         "This tool uses AI (Google Gemini) to analyze resumes but should be used as a guide, not the sole factor in your job application process."
     )
 
+    
+    # Remaining UI and functionality remain the same...
+    
 if __name__ == "__main__":
     main()
